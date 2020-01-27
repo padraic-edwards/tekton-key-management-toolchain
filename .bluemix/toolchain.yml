@@ -25,8 +25,8 @@ services:
      service_id: githubpublic
      parameters:
        repo_name: '{{toolchain.name}}'
-       source_repo_url: 'https://github.com/padraic-edwards/tekton-key-management-pipeline'
-       repo_url: 'https://github.com/padraic-edwards/tekton-key-management-pipeline'
+       source_repo_url: 'https://github.com/padraic-edwards/tekton-key-pipeline'
+       repo_url: 'https://github.com/padraic-edwards/tekton-key-pipeline'
        type: link
        has_issues: false
        enable_traceability: true
