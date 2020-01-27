@@ -26,7 +26,7 @@ services:
      parameters:
        repo_name: '{{toolchain.name}}'
        source_repo_url: 'https://github.com/padraic-edwards/tekton-key-management-pipeline'
-       type: clone
+       type: link
        has_issues: false
        enable_traceability: true
   build:
