@@ -21,14 +21,6 @@ template:
 toolchain:
   name: 'key-setup-{{timestamp}}'
 services:
-  repo:
-    service_id: githubpublic
-    parameters:
-      repo_name: '{{toolchain.name}}'
-      source_repo_url: 'https://github.com/padraic-edwards/tekton-key-management-pipeline'
-      type: clone
-      has_issues: false
-      enable_traceability: true
   build:
     service_id: pipeline
     parameters:
@@ -47,9 +39,9 @@ services:
           BUILD_SIGNER: '{{form.pipeline.parameters.build_signer}}'
           VALIDATION_SIGNER: '{{form.pipeline.parameters.validation_signer}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
-          REPOSITORY: 'https://github.com/padraic-edwards/tekton-key-management-pipeline'
+          REPOSITORY: 'https://github.com/padraic-edwards/tekton-key-pipeline'
           REVISION: master
-          GIT_REPO: repo
+          GIT_REPO: 'https://github.com/padraic-edwards/tekton-key-pipeline'
         execute: true
 form:
   pipeline:
