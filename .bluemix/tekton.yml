@@ -1,0 +1,49 @@
+---
+inputs:
+- type: git
+  branch: master
+  service: ${GIT_REPO}
+  path: .tekton
+triggers:
+- type: git
+  name: Git PR Trigger
+  service: ${GIT_REPO}
+  branch: master
+  events: {"push":true,"pull_request":true,"pull_request_closed":false}
+  eventListener: listener
+- type: manual
+  name: Manual Trigger
+  eventListener: listener
+properties:
+- name: registryRegion
+  value: ${BUILD_REGION_ID}
+  type: text
+- name: registryNamespace
+  value: ${REGISTRY_NAMESPACE}
+  type: text
+- name: buildSigner
+  value: ${BUILD_SIGNER}
+  type: text
+- name: validationSigner
+  value: ${VALIDATION_SIGNER}
+  type: text
+- name: IBMCLOUD_TARGET_REGION
+  value: ${BUILD_REGION_ID}
+  type: text
+- name: vaultInstance
+  value: ${VAULT_INSTANCE}
+  type: text
+- name: apikey
+  value: ${API_KEY}
+  type: SECURE
+- name: repository
+  value: ${REPOSITORY}
+  type: text
+- name: revision
+  value: ${REVISION}
+  type: text
+- name: resourceGroup
+  value: ${BUILD_RESOURCE_GROUP}
+  type: text
+  
+  
